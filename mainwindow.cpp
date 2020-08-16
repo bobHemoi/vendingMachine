@@ -16,20 +16,10 @@ MainWindow::~MainWindow()
 }
 
 void MainWindow::checkMoney(){
-    ui->pbCoffee->setEnabled(false);
-    ui->pbTea->setEnabled(false);
-    ui->pbMilk->setEnabled(false);
-
-
-    if (this->money >= 100){
-        ui->pbCoffee->setEnabled(true);
-    }
-    if (this->money >= 150){
-        ui->pbTea->setEnabled(true);
-    }
-    if (this->money >= 200){
-        ui->pbMilk->setEnabled(true);
-    }
+    ui->pbCoffee->setEnabled(this->money >= 100);
+    ui->pbTea->setEnabled(this->money >= 150);
+    ui->pbMilk->setEnabled(this->money >= 200);
+    ui->pbReset->setEnabled(this->money > 0);
 }
 
 void MainWindow::changeMoney(int diff){
